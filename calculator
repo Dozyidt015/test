@@ -1,0 +1,90 @@
+#define _USE_MATH_DEFINE
+#include <iostream>
+#include <cmath>
+#include <conio.h>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double SOH, CAH, TOA;
+    double hyp, opp, adj;
+    char choice;
+
+    start:
+
+    cout << "           SOH-CAH-TOA Calculator\n" << endl;
+    cout << " [1] Given Opposite and Hypotenuse\n";
+    cout << " [2] Given Adjacent and Hypotenuse\n";
+    cout << " [3] Given Opposite and Adjacent\n";
+    cout << " [9] About\n";
+    cout << " [0] Exit\n";
+    cout << " Enter your choice: ";
+
+    choice = _getch();
+    switch (choice) {
+
+    case '1':
+        cout << "\n \nEnter the length of the Opposite side: ";
+        cin >> opp;
+        cout << "   Enter the length of the Hypotenuse: ";
+        cin >> hyp;
+        SOH = asin(opp / hyp) * (180 / 3.1415);
+        cout << fixed << setprecision(2);
+        cout << " Results: The angle measures = " << SOH << " Degrees\n" << endl;
+        cout << "Press any key to go back to the main menu.\n";
+        system("pause");
+        system("cls");
+        goto start;
+        break;
+
+    case '2':
+        cout << "\n \nEnter the length of the adjacent side: ";
+        cin >> adj;
+        cout << "   Enter the length of the hypotenuse: ";
+        cin >> hyp;
+        CAH = acos(adj / hyp) * (180 / 3.1415);
+        cout << fixed << setprecision(2);
+        cout << " Results: The angle measures = " << CAH << " Degrees\n" << endl;
+        cout << "Press any key to go back to the main menu.\n";
+        system("pause");
+        system("cls");
+        goto start;
+        break;
+
+    case '3':
+        cout << "\n \nEnter the length of the opposite side: ";
+        cin >> opp;
+        cout << "     Enter the length of the adjacent side: ";
+        cin >> adj;
+        TOA = atan(opp / adj) * (180 / 3.1415);
+        cout << fixed << setprecision(2);
+        cout << " Results: The angle measures = "  << TOA << " Degrees\n" << endl;
+        cout << "Press any key to go back to the main menu.\n";
+        system("pause");
+        system("cls");
+        goto start;
+        break;
+
+    case '9':
+        cout << "\n          \nAbout the Program\n";
+        cout << " Developed by: James Ryne G. Velado\n" << endl;
+        cout << " CPE112/L - QUIZ 2\n";
+        cout << " Course Code : 9020\n";
+        cout << " Station No.: 39\n";
+        cout << "Press Any Botton to Retun\n";
+        system("pause");
+        system("cls");
+        goto start;
+        break;
+
+    case '0':
+        cout << "\n \nExiting the program." << endl;
+        return 0;
+
+    default:
+        cout << "\n \nInvalid choice. Please try again." << endl;
+        system("pause");
+        system("cls");
+        goto start;
+    }
+}
