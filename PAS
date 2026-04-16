@@ -1,0 +1,90 @@
+#include <iostream>
+#include <cmath>
+#include <conio.h>
+
+using namespace std;
+
+int main() {
+    double P, A, S;
+    double a, b1, b2, h;
+    char choice;
+
+    start: // this is where the code will return to
+
+    // this is for the main menu
+    cout << "           Main List Option\n" << endl;
+    cout << " [A] Perimeter\n";
+    cout << " [B] Area\n";
+    cout << " [C] Surface Area\n";
+    cout << " [D] Exit\n";
+    cout << " Enter your choice: ";
+
+    choice = _getch();
+    switch (choice) {
+
+        // this will run for the perimeter
+    case 'A':
+    case 'a':
+        cout << "\nEnter side measurement of the square: ";
+        cin >> a;
+        cout << "\nThe perimeter of a square with a side measurement\n";
+        P = (4 * a); // formula used
+        cout << " of: " << a << " inches\n";
+        cout << " is: " << P << " inches\n";
+        cout << "\nPress <K/k> to go back to the main menu.\n";
+        system("pause");
+        system("cls");
+        goto start;
+        break;
+
+        // this will run for the area
+    case 'B':
+    case 'b':
+        cout << "\nEnter side measurement of the square:";
+        cout << "\nBase 1: ";
+        cin >> b1;
+        cout << "\nBase 2: ";
+        cin >> b2;
+        cout << "\nHeight: ";
+        cin >> h;
+        cout << "\nThe perimeter of a square with a side measurement\n";
+        A = 0.5 * (b1 + b2) * h; // formula used
+        cout << "Base 1 of: " << b1 << " inches\n";
+        cout << "Base 2 of: " << b2 << " inches\n";
+        cout << "Height of: " << h << " inches\n";
+        cout << "\n is: " << A << " inches\n";
+        cout << "\nPress <K/k> to go back to the main menu.\n";
+        system("pause");
+        system("cls");
+        goto start;
+        break;
+
+        // this will run for the surface area
+    case 'C':
+    case 'c':
+        cout << "\nEnter side measurement of the square:";
+        cin >> a;
+        cout << "\nThe perimeter of a square with a side measurement\n";
+        S = 6 * pow(a, 2); // formula used
+        cout << " of: " << a << " inches\n";
+        cout << " is: " << S << " inches\n";
+        cout << "\nPress <K/k> to go back to the main menu.\n";
+        system("pause");
+        system("cls");
+        goto start;
+        break;
+
+        // this will exit the program
+    case 'D':
+    case 'd':
+        cout << "\n \nExiting the program." << endl;
+        return 0;
+     
+        // this will be outputted if the botton that is input not one of the options
+    default:
+        cout << "\n \nInvalid choice. Please try again." << endl;
+        system("pause");
+        system("cls");
+        goto start;
+    }
+}
