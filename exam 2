@@ -1,0 +1,75 @@
+#include <iostream>
+#include <conio.h>
+#include <iomanip>
+using namespace std;
+
+int main() {
+	double eqgrade, grade, score;
+	int year;
+	char opt;
+
+	start:
+
+	cout << "MENU\n";
+	cout << "\n[1] Leap Year Calculator\n";
+	cout << "[2] Base-15 Calculator\n";
+	cout << "[3] About\n";
+	cout << "\n[0] Exit\n";
+	cout << "Select choice: ";
+	opt = _getch();
+
+	switch (opt) {
+	case '1':
+		cout << "\nLEAP YEAR CALCULATOR\n";
+		cout << "\nEnter year: "; cin >> year;
+		if (year < 0 || year > 9999) {
+			cout << "Invalid Year\n";
+		}
+
+		if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+			cout << "Year " << year << " is a LEAP Year\n";
+		}
+		else {
+			cout << "Year " << year << " is not a LEAP Year\n";
+		}
+		cout << "\n Press <any key> to go back to main menu.\n";
+		cout << "Press <ESC> to exit program.";
+		system("pause");
+		system("cls");
+		goto start;
+		break;
+
+	case '2':
+		cout << "BASE-15 CALCULATOR\n";
+		cout << "\nEnter grade: "; cin >> grade;
+		eqgrade = (grade / 100) * 85 + 15;
+		cout << "\nBase-15 Equivalent of " << grade << " is " << eqgrade;
+
+		if (grade >= 96 && grade == 100) {
+			cout << "Remarks: 4.0 High Distinction";
+		}
+		else if (grade >= 90 && grade == 95) {
+			cout << "Remarks: 3.5 Distinction";
+		}
+		else if (grade >= 85 && grade == 89) {
+			cout << "Remarks: 3.0 Very Good";
+		}
+		else if (grade >= 80 && grade == 84) {
+			cout << "Remarks: 2.5 Good";
+		}
+		else if (grade >= 80 && grade == 84) {
+			cout << "Remarks: 2.5 Good";
+		}
+		else if (grade >= 75 && grade == 79) {
+			cout << "Remarks: 2.0 Average";
+		}
+		else
+			cout << "Remarks: 1.0 Fail";
+
+	case '3':
+		cout << "ABOUT PROGRAM\n";
+		cout << "\nCPE 112/L Prograqmming Logic And Design\n";
+	}
+	   
+
+	}
