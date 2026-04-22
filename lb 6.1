@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	char letter;
+
+	while (letter != 'x')  // use single qutation mark ('') for characters
+	{
+		cout << "Please enter a letter: ";
+		cin >> letter;
+		cout << "\nThe letter you entered is " << letter << endl << endl;
+	}  // end of while-loop
+
+	return 0;
+}
+
+// #include <iostream>
+using namespace std;
+int main()
+{
+	char letter = 'a';
+
+	do {
+		cout << "Please enter a letter: ";
+		cin >> letter;
+		cout << "\nThe letter you entered is " << letter << endl << endl;
+	} while (letter != 'x');
+
+	return 0;
+}
+
+// 
