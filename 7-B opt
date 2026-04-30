@@ -1,0 +1,29 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+double getFahrenhiet();
+double calcCelsius(double Fahrenhiet);
+
+int main() {
+	double fahr, cels;
+
+	fahr = getFahrenhiet();
+	cels = calcCelsius(fahr);
+
+	cout << fixed << setprecision(0);
+	cout << "Celsius Temperature: " << cels << endl;
+	return 0;
+}
+
+double getFahrenhiet() {
+	double temp;
+	cout << "Enter Fahrenhiet Temperature: "; cin >> temp;
+	return temp;
+	
+}
+
+double calcCelsius(double fahrenheit) {
+	return 5.0 / 9.0 * (fahrenheit - 32.0);
+
+}
