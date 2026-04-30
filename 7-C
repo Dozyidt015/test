@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+// Function prototypes using void and pass by reference
+void getFahrenheit(double &fahrenheit);
+void calcCelsius(double fahrenheit, int &celsius);
+
+int main() {
+    double fahr;
+    int cels;
+
+    // 1. Pass 'fahr' by reference to be filled by the function
+    getFahrenheit(fahr);
+
+    // 2. Pass 'fahr' by value and 'cels' by reference to be updated
+    calcCelsius(fahr, cels);
+
+    // 3. Display the result
+    cout << "Celsius temperature: " << cels << endl;
+
+    return 0;
+}
+
+// Uses a reference (&) to modify the original 'fahr' variable in main
+void getFahrenheit(double &temp) {
+    cout << "Enter the Fahrenheit temperature: ";
+    cin >> temp;
+}
+
+// Uses a reference (&) to store the result directly into 'cels' in main
+void calcCelsius(double fahrenheit, int &celsius) {
+    celsius = static_cast<int>(5.0 / 9.0 * (fahrenheit - 32.0));
+}
