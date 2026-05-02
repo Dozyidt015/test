@@ -1,0 +1,39 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+void getTestScores(double scores[], int& n) {
+    double score;
+    n = 0;
+    cout << "Enter test scores (-1 to stop):" << endl;
+    cout << "Score: ";
+    cin >> score;
+    while (score != -1) {
+        scores[n++] = score;
+        cout << "Score: ";
+        cin >> score;
+    }
+}
+
+double calcAverage(double scores[], int n) {
+    double sum = 0;
+    for (int i = 0; i < n; i++)
+        sum += scores[i];
+    return sum / n;
+}
+
+void displayAverage(double average) {
+    cout << fixed << setprecision(1);
+    cout << "Average: " << average << endl;
+}
+
+int main() {
+    double scores[100];
+    int n;
+    getTestScores(scores, n);
+    if (n > 0)
+        displayAverage(calcAverage(scores, n));
+    else
+        cout << "No scores entered." << endl;
+    return 0;
+}
