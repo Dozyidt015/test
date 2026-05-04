@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+// Function Prototype
+bool Prime(int);
+
+int main() {
+   // Prime (05);
+   cout << "Input a number: ";
+   
+   int num = 0;
+   // cout << "12 is " << Prime(12);
+   cin >> num;
+   
+   if (Prime(num)) {
+       cout << " The number " << num << " is Prime."; }
+       else {
+           cout << " The number " << num << " is not Prime."; }
+       
+   
+}
+
+// True if Prime, False if not
+bool Prime(int number) {
+    for(int i = 2; i < number / 2; i++)
+    {
+        if(number % i == 0) {
+            return false;
+        }
+    }
+    
+    return true;
+}
