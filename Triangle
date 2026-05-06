@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	char choice;
+	do {
+		int height;
+		cout << "Input Height of Triangle: "; cin >> height;
+		cout << endl;
+
+		for (int i = height; i >= 1; i--) {
+			for (int j = 1; j <= i; j++) {
+				cout << " * ";
+			}
+
+			cout << endl;
+		}
+
+		cout << "\nPress <any key> to try again." << endl;
+		cout << "Press <0> to exit the program." << endl;
+		cin >> choice; cout << endl;
+
+	} while (choice != '0');
+
+	return 0;
+}
