@@ -1,0 +1,97 @@
+Basic Syntax
+cppfor (int i = 0; i < 3; i++) {       // outer loop
+    for (int j = 0; j < 3; j++) {   // inner loop
+        cout << i << "," << j << "  ";
+    }
+    cout << endl;  // new line after each outer iteration
+}
+Output:
+0,0  0,1  0,2
+1,0  1,1  1,2
+2,0  2,1  2,2
+
+Common Examples
+1. Multiplication Table
+cpp#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        for (int j = 1; j <= 5; j++) {
+            cout << i * j << "\t";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+1    2    3    4    5
+2    4    6    8    10
+3    6    9    12   15
+4    8    12   16   20
+5    10   15   20   25
+
+2. Star Pattern
+cppfor (int i = 1; i <= 5; i++) {
+    for (int j = 1; j <= i; j++) {
+        cout << "* ";
+    }
+    cout << endl;
+}
+*
+* *
+* * *
+* * * *
+* * * * *
+
+3. 2D Array (Matrix)
+cppint matrix[3][3] = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+
+for (int i = 0; i < 3; i++) {        // rows
+    for (int j = 0; j < 3; j++) {    // columns
+        cout << matrix[i][j] << " ";
+    }
+    cout << endl;
+}
+1 2 3
+4 5 6
+7 8 9
+
+4. While Loop Nested
+cppint i = 0;
+while (i < 3) {
+    int j = 0;
+    while (j < 3) {
+        cout << "(" << i << "," << j << ") ";
+        j++;
+    }
+    cout << endl;
+    i++;
+}
+
+break and continue
+cpp// break only exits the INNER loop
+for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+        if (j == 1) break;           // stops inner when j == 1
+        cout << i << "," << j << " ";
+    }
+    cout << endl;
+}
+0,0
+1,0
+2,0
+To break out of all loops, use a flag or goto:
+cppbool done = false;
+for (int i = 0; i < 3 && !done; i++) {
+    for (int j = 0; j < 3; j++) {
+        if (i == 1 && j == 1) {
+            done = true;
+            break;
+        }
+        cout << i << "," << j << endl;
+    }
+}
