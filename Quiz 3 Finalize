@@ -1,0 +1,44 @@
+#include <iostream> 
+#include <cmath>
+#include <conio.h>
+using namespace std;
+
+int getTerm(int a, int r, int i) {
+	return a * pow(r, i - 1);
+}
+
+int main()
+{
+	int a, r, n, sum = 0;
+	char choice;
+
+	do {
+		cout << "Geometric sequence calculator" << endl;
+		cout << "\n\nInput value of first term (a): "; cin >> a;
+		cout << "       Input common ratio (r): "; cin >> r;
+		cout << "     Input number of term (n): "; cin >> n;
+		cout << "\n\n  i               a*r^(i-1)" << endl;
+		cout << "----------------------------------" << endl;
+
+		for(int i = 1; i <= n; i++) {
+			cout << "  " << i << "              " << getTerm(a, r, i) << endl;
+			sum += getTerm(a, r, i);
+		}
+
+		cout << "\n\nSum of the terms (S): " << sum << endl;
+
+		cout << "\nPress <any key> to try another valuer.\n";
+		cout << "press <0> to exit the progeram.\n";
+		choice = _getch();
+		system("cls");
+
+
+	} while (choice != '0'); {
+		cout << "ABOUT THE PROGRAM\n\n";
+		cout << "CPE 112/L - QUIZ 3\n";
+		cout << "Developed by: James Ryne G. Velado\n";
+		cout << "Course code: 9020\n";
+		cout << "Station Number: 39\n";
+	}
+
+}
