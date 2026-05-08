@@ -1,0 +1,82 @@
+#include <iostream>
+#include <cmath>
+#include <conio.h>
+#include <iomanip>
+using namespace std;
+
+// this is where the calculation occur
+double getTerm(double a, double r, double i, double n) {
+	return a * (pow((1 + r * i), 2));
+}
+
+int main()
+{
+	// variable used
+	double a, r, i, n, sum = 0;
+	char choice;
+
+	// do-while loop used
+	do {
+		// output of the menu
+		cout << "            Third Examination\n\n";
+		cout << "[1] Qudratic Growth Calculator\n";
+		cout << "[2] About Program\n\n";
+		cout << "[0] Exit Program\n";
+		choice = _getch();
+		system("cls");
+
+		// menu choices
+		switch (choice) {
+		case'1':
+			cout << "Exponential Growth Calculator\n\n";
+			cout << "   Enter initial value (a): "; cin >> a;
+			cout << "     Enter growth rate (r): "; cin >> r;
+			cout << " Enter number of terms (n): "; cin >> n;
+			cout << "\n\n";
+			cout << "   i             a(1+ri)^2   \n\n";
+
+			for (double i = 0; i < n; i++) {
+				cout << "  " << i << "              " << getTerm(a, r, i, n) << endl;
+				sum += getTerm(a, r, i, n);
+			}
+			cout << fixed << setprecision(4);
+			cout << "\n\nSum of sequece: " << sum << endl;
+
+			cout << "\nPress <any key> to try another valuer.\n";
+			cout << "press <0> to exit the progeram.\n";
+			choice = _getch();
+			system("pause");
+			system("cls");
+			break;
+
+		case'2':
+			// about the program
+			cout << "ABOUT THE PROGRAM\n\n";
+			cout << "CPE 112/L - Third Examination\n\n";
+			cout << "Developed by: James Ryne G. Velado\n";
+			cout << "Course Code: 9020\n";
+			cout << "Station No.: 39\n\n";
+			cout << "Press <any key> to go back to main menu." << endl;
+			system("pause");
+			system("cls");
+			break;
+
+		case'0':
+			// exit the program
+			cout << "Exiting Program" << endl;
+			system("pause");
+			system("cls");
+			break;
+
+		default:
+			// for invalid inputs
+			cout << "Invalid Input" << endl;
+			system("pause");
+			system("cls");
+			break;
+		}  
+		
+	} while(choice != '0'); {
+		cout << "End of Program\n\n";
+	}
+}
