@@ -1,0 +1,83 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+// --- Get valid number of terms (1-100) ---
+int getTerms() {
+    int n;
+    do {
+        cout << "Enter number of terms (1-100): ";
+        cin >> n;
+        if (n < 1 || n > 100)
+            cout << "Invalid! Try again.\n";
+    } while (n < 1 || n > 100);
+    return n;
+}
+
+// --- Feature A: Sum of Even Factorials (2! + 4! + 6! ...) ---
+void sumEvenFactorials() {
+    int n = getTerms();
+    long long sum = 0, fact = 1;
+
+    cout << "Terms: ";
+    for (int i = 1; i <= n; i++) {
+        fact *= (2*i - 1) * (2*i);  // builds (2i)! from previous
+        sum += fact;
+        cout << 2*i << "!";
+        if (i < n) cout << " + ";
+    }
+    cout << "\nSum: " << sum << endl;
+}
+
+// --- Feature B: Fibonacci Series ---
+void fibonacciSeries() {
+    int n = getTerms();
+    long long a = 0, b = 1, sum = 0;
+
+    cout << "Terms: ";
+    for (int i = 0; i < n; i++) {
+        cout << a;
+        if (i < n - 1) cout << ", ";
+        sum += a;
+        long long next = a + b;
+        a = b;
+        b = next;
+    }
+    cout << "\nSum: " << sum << endl;
+}
+
+// --- Main ---
+int main() {
+    char choice;
+
+    do {
+        // Show menu
+        cout << "\n[A] Sum of Even Factorials\n";
+        cout << "[B] Sum of Fibonacci Series\n";
+        cout << "[0] Exit\nChoice: ";
+        choice = toupper(_getch());
+        cout << choice << endl;
+
+        if (choice == 'A' || choice == 'B') {
+            char again;
+            do {
+                if (choice == 'A') sumEvenFactorials();
+                else               fibonacciSeries();
+
+                cout << "\nPress ESC to go back to menu, any other key to try again: ";
+                again = _getch();
+                cout << endl;
+            } while (again != 27); // 27 = ESC
+
+        } else if (choice != '0') {
+            cout << "Invalid choice!\n";
+        }
+
+    } while (choice != '0');
+
+    // Exit message -- change these two lines!
+    cout << "\nName:    Your Name Here\n";
+    cout << "Subject: Your Subject Code\n\n";
+
+    return 0;
+}
