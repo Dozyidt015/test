@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+const int MAX_SIZE = 100;
+
+int main()
+{
+	int size = 0, sumeven = 0, sumodd = 0;
+	int n[MAX_SIZE];
+
+	cout << "Add Even/Odd Arrays" << endl;
+
+	do { // loop used to check the size of the array
+		cout << "Enter the size of the array (1 to " << MAX_SIZE << "): ";
+		cin >> size;
+	} while (size < 1 || size > MAX_SIZE);
+
+	for (int i = 0; i < size; i++) { // used to input the elements and calculate the sums
+		cout << "Enter element " << i + 1 << ": ";
+		cin >> n[i];
+		if (n[i] % 2 == 0) { // check if the element is even and add it to the sum of even numbers
+			sumeven += n[i];
+		} else { // if the element is odd, add it to the sum of odd numbers
+			sumodd += n[i];
+		}
+	}
+	cout << "\nEven elements\n";
+	for (int i = 0; i < size; i++) { // used to display even elements
+		if (n[i] % 2 == 0) {
+			cout << n[i] << " ";
+		}
+	}
+
+	cout << "\n\nOdd elements\n";
+	for (int i = 0; i < size; i++) { // used to display odd elements
+		if (n[i] % 2 != 0) {
+			cout << n[i] << " ";
+		}
+	}
+
+	// display the sums of even and odd numbers
+	cout << "\n\nSum of even numbers: " << sumeven << endl;
+	cout << "\nSum of odd numbers: " << sumodd << endl;
+
+	return 0;
+}
