@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int row, column;
+	int matrix1[3][3], matrix2[3][3];
+	int sum[3][3];
+
+	cout << "  ==================================\n\n";
+	cout << "      Addition of 3 x 3 Matrix\n\n";
+	cout << "  ==================================\n\n";
+
+
+	cout << " Enter element of Matrix 1: ";
+	for (row = 0; row < 3; row++) { 
+		for (column = 0; column < 3; column++) {
+			cin >> matrix1[row][column];
+		}
+	}
+
+	cout << " Enter element of Matrix 2: ";
+	for (row = 0; row < 3; row++) {
+		for (column = 0; column < 3; column++) {
+			cin >> matrix2[row][column];
+		}
+	}
+
+	cout << "The elements in Matrix 1 are: \n";
+	for (row = 0; row < 3; row++) {
+		for (column = 0; column < 3; column++) {
+			cout << matrix1[row][column] << " ";
+		}
+		cout << endl;
+	}
+
+	cout << "The elements in Matrix 2 are: \n";
+	for (row = 0; row < 3; row++) {
+		for (column = 0; column < 3; column++) {
+			cout << matrix2[row][column] << " ";
+		}
+		cout << endl;
+	}
+
+	cout << "The sum of Matrices is: \n";
+	for (row = 0; row < 3; row++) {
+		for (column = 0; column < 3; column++) {
+			sum[row][column] = matrix1[row][column] + matrix2[row][column];
+			cout << sum[row][column] << " ";
+		}
+		cout << endl;
+	}
+		
+}
