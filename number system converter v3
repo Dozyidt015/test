@@ -1,0 +1,79 @@
+#include <iostream>
+#include <string>
+using namespace std;
+ 
+bool isValidNumber(const string& num, int base) {
+    for (char c : num) {
+        int digit = isdigit(c) ? c - '0' : toupper(c) - 'A' + 10;
+        if (digit < 0 || digit >= base) return false;
+    }
+    return !num.empty();
+}
+ 
+long long toDecimal(const string& num, int base) {
+    long long result = 0, power = 1;
+    for (int i = num.size() - 1; i >= 0; i--) {
+        int digit = isdigit(num[i]) ? num[i] - '0' : toupper(num[i]) - 'A' + 10;
+        result += digit * power;
+        power *= base;
+    }
+    return result;
+}
+ 
+string fromDecimal(long long num, int base) {
+    if (num == 0) return "0";
+    string result;
+    const string digits = "0123456789ABCDEF";
+    bool negative = num < 0;
+    if (negative) num = -num;
+    while (num > 0) {
+        result = digits[num % base] + result;
+        num /= base;
+    }
+    return negative ? "-" + result : result;
+}
+ 
+int main() {
+    string number;
+    int fromBase, toBase;
+ 
+    cout << "=== Number System Converter ===\n";
+ 
+    cout << "From base (2-16): ";
+    cin >> fromBase;
+    if (fromBase < 2 || fromBase > 16) {
+        cout << "Error: Base must be between 2 and 16.\n";
+        return 1;
+    }
+ 
+    cout << "Enter number (base " << fromBase << "): ";
+    cin >> number;
+ 
+    // normalize to uppercase
+    for (char& c : number) c = toupper(c);
+ 
+    // handle negative input
+    bool negative = number[0] == '-';
+    string absNumber = negative ? number.substr(1) : number;
+ 
+    if (!isValidNumber(absNumber, fromBase)) {
+        cout << "Error: '" << number << "' is not a valid base-" << fromBase << " number.\n";
+        return 1;
+    }
+ 
+    cout << "To base (2-16): ";
+    cin >> toBase;
+    if (toBase < 2 || toBase > 16) {
+        cout << "Error: Base must be between 2 and 16.\n";
+        return 1;
+    }
+ 
+    long long decimal = toDecimal(absNumber, fromBase);
+    if (negative) decimal = -decimal;
+    string converted = fromDecimal(decimal, toBase);
+ 
+    cout << "\nResult: " << number << " (base " << fromBase << ") = "
+         << converted << " (base " << toBase << ")\n";
+ 
+    return 0;
+}
