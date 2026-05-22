@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+ 
+// Convert any base to decimal
+long long toDecimal(const string& num, int base) {
+    long long result = 0, power = 1;
+    for (int i = num.size() - 1; i >= 0; i--) {
+        int digit = isdigit(num[i]) ? num[i] - '0' : toupper(num[i]) - 'A' + 10;
+        result += digit * power;
+        power *= base;
+    }
+    return result;
+}
+ 
+// Convert decimal to any base
+string fromDecimal(long long num, int base) {
+    if (num == 0) return "0";
+    string result;
+    const string digits = "0123456789ABCDEF";
+    while (num > 0) {
+        result += digits[num % base];
+        num /= base;
+    }
+    reverse(result.begin(), result.end());
+    return result;
+}
+ 
+int main() {
+    string number;
+    int fromBase, toBase;
+ 
+    cout << "=== Number System Converter ===\n";
+    cout << "Enter number: ";
+    cin >> number;
+    cout << "From base (2-16): ";
+    cin >> fromBase;
+    cout << "To base (2-16): ";
+    cin >> toBase;
+ 
+    long long decimal = toDecimal(number, fromBase);
+    string converted = fromDecimal(decimal, toBase);
+ 
+    cout << "\nResult: " << number << " (base " << fromBase << ") = "
+         << converted << " (base " << toBase << ")\n";
+ 
+    return 0;
+}
